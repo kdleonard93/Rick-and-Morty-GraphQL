@@ -8,8 +8,8 @@ export default function CharacterList() {
 
   const [characters, setCharacters] = useState([]);
 
-  const CHAR_QUERY = gql`
-    {
+  const GET_CHAR = gql`
+   query {
       characters(page: 2, filter: { name: "rick" }) {
         info {
           count
@@ -25,7 +25,7 @@ export default function CharacterList() {
   `;
 
   return (
-    <Query query={CHAR_QUERY}>
+    <Query query={GET_CHAR}>
       <section className="character-list grid-view">
         {characters.map(char => {
           return (
